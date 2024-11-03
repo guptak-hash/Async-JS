@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Poster Slideshow</h1>
+    <div>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    let x;
+    let images = ["https://m.media-amazon.com/images/M/MV5BOTFhMzgwNzQtNTYzMS00NDdlLWJkMjYtMGY3ZGY5NjZjYjliXkEyXkFqcGc@._V1_QL75_UX442.5_.jpg",
+        "https://m.media-amazon.com/images/M/MV5BMTM4MTgxNDg3Nl5BMl5BanBnXkFtZTcwMzg1ODUyMw@@._V1_QL75_UX1230_.jpg",
+        "https://m.media-amazon.com/images/M/MV5BMTUwNzY4ODY3OV5BMl5BanBnXkFtZTgwNDc4MzA4MTI@._V1_QL75_UX582_.jpg",
+        "https://m.media-amazon.com/images/M/MV5BZmUyNjdhODItNDBlZC00NjMzLWJlMDYtNzhmNjQ1M2JiYmM2XkEyXkFqcGc@._V1_QL75_UX606_.jpg",
+        "https://m.media-amazon.com/images/M/MV5BZjdhZmMxZDItMzA4Zi00NTg2LWE2ZWYtYzY1MmEwNTBhMzNkXkEyXkFqcGc@._V1_QL75_UX492_.jpg"
+    ]
+
+    let slideimg = document.createElement("img")
+    slideimg.src = images[0]
+    document.querySelector("#container").append(slideimg)
+    
+    function start(){
+        let i=1;
+        x=setInterval(function(){
+            if(i==images.length){
+                i=0;
+            }
+            slideimg.src = images[i++]
+        },2000)
+    };
+
+    function stop(){
+       clearInterval(x);
+    }
+</script>
